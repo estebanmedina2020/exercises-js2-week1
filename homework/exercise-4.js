@@ -2,16 +2,18 @@
 Below are some restaurants in Glasgow. Each restaurant has a name, the number of total seats, 
 the number of customers in the restaurant at the moment and the menu with prices.
 
-We want to build an object to simulate a Restaurant Finder application (see below restaurantFinderApplication).
+We want to build an object to simulate a Restaurant Finder application
+(see below restaurantFinderApplication).
 
-1) Define a method findAvailableRestaurants which takes a number of people in parameter and returns 
-all the restaurant names which have the required number of seats available at the moment.
+1) Define a method findAvailableRestaurants which takes a number of people in parameter
+and returns all the restaurant names which have the required number of seats available
+at the moment.
 
 2) Define a method findRestaurantServingDish which takes a dish name in parameter and returns
 all the restaurant names serving this dish.
 
-3) Define a method countNumberOfRestaurantsInArea which takes an area of Glasgow in parameter (center, west),
-and returns the number of restaurants in this area.
+3) Define a method countNumberOfRestaurantsInArea which takes an area of Glasgow in parameter
+(center, west), and returns the number of restaurants in this area.
 */
 
 let restaurant1 = {
@@ -58,18 +60,18 @@ let restaurantFinderApplication = {
   applicationName: "Restaurant Finder",
   applicationVersion: "1.0",
   restaurants: restaurants,
-  findAvailableRestaurants: function(numberOfPeople) {
-          return this.restaurants.filter(ar => ar.totalSeats - ar.numberOfCustomers > numberOfPeople).map(ar => ar.name)
-      },
-    // Complete here
+  findAvailableRestaurants: function (numberOfPeople) {
+    return this.restaurants
+      .filter((ar) => ar.totalSeats - ar.numberOfCustomers > numberOfPeople)
+      .map((ar) => ar.name);
   },
   findRestaurantServingDish: function (dishName) {
-        return this.restaurants.filter(ad => ad.dishName - ad.menu[""]).map(ad => ad.name)
-        },
-    // Complete here
+    return this.restaurants
+      .filter((rsd) => rsd.menu.includes(dishName))
+      .map((rsd) => rsd.name);
   },
   countNumberOfRestaurantsInArea: function (area) {
-    // Complete here
+    return this.restaurants.map((ria) => ria.address.area === area);
   },
 };
 
