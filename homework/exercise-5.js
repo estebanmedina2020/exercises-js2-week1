@@ -29,9 +29,7 @@ var mentorsAges = {
 
 let mentorsNames = Object.keys(mentorsAges);
 
-let mentorsNamedUppercased = mentorsNames.map((name) =>
-  name.toLocaleUpperCase()
-);
+let mentorsNamedUppercased = mentorsNames.map((name) => name.toUpperCase());
 
 // ONLY EDIT ABOVE THIS LINE
 
