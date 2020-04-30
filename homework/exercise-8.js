@@ -41,21 +41,20 @@ function removeSkill(mentors,newSkill){
 function addStudentLikes(mentors){
   //your code here
 }
-*/ 
+*/
 
 var mentors = [
   {
     firstName: "Antonio",
     lastName: "Miranda",
-    skills: ["JS","React","Node"],
+    skills: ["JS", "React", "Node"],
     class: "Mar1",
     studentLikes: 0,
-    job:
-      {
-        company: "Google",
-        position: "Senior developer",
-        city: "Barcelona"
-      }
+    job: {
+      company: "Google",
+      position: "Senior developer",
+      city: "Barcelona",
+    },
   },
   {
     firstName: "Leo",
@@ -63,40 +62,92 @@ var mentors = [
     skills: ["Play football"],
     class: "Mar3",
     studentLikes: 0,
-    job:
-      {
-        company: "FC Barcelona",
-        position: "Player",
-        city: "Barcelona"
-      }
+    job: {
+      company: "FC Barcelona",
+      position: "Player",
+      city: "Barcelona",
+    },
   },
   {
     firstName: "John",
     lastName: "VanDamme",
-    skills: ["React","Angular","Python","Node"],
+    skills: ["React", "Angular", "Python", "Node"],
     class: "Mar4",
     studentLikes: 0,
-    job:
-      {
-        company: "Facebook",
-        position: "Software Manager",
-        city: "Chicago"
-      }
-  },  
+    job: {
+      company: "Facebook",
+      position: "Software Manager",
+      city: "Chicago",
+    },
+  },
   {
     firstName: "Giorgio",
     lastName: "Polvara",
-    skills: ["HTML","JS","React"],
+    skills: ["HTML", "JS", "React"],
     class: "Mar2",
     studentLikes: 0,
-    job:
-      {
-        company: "Amazon",
-        position: "Senior developer",
-        city: "Barcelona"
-      }
+    job: {
+      company: "Amazon",
+      position: "Senior developer",
+      city: "Barcelona",
+    },
   },
-
 ];
 
 //YOUR CODE HERE
+
+function greeting(mentor) {
+  console.log(
+    "Hi, my name is " +
+      mentor.firstName +
+      " " +
+      mentor.lastName +
+      "." +
+      " I work in Barcelona and I know React."
+  );
+}
+function worksinBcn(mentor) {
+  return mentor.job.city === "Barcelona";
+}
+const bcnWorkers = mentors.filter(worksinBcn);
+bcnWorkers.forEach(greeting);
+
+function updateDetails(mentor) {
+  mentor.class = "Jun1";
+  mentor.skills.push("SQL");
+}
+bcnWorkers.forEach(updateDetails);
+
+function addSkill(mentors, newSkill) {
+  mentors.forEach(function (mentor) {
+    mentor.skills.push(newSkill);
+  });
+}
+function removeSkill(mentors, newSkill) {
+  mentors.forEach(function (mentor) {
+    let index = mentor.skills.indexOf(newSkill);
+    mentor.skills.splice(index, 1);
+  });
+}
+function moreSkillfullMentor(arrayOfMentors) {
+  const numberOfSkillsForMentor = mentors.map(function (mentor) {
+    mentor.skills.length;
+  });
+  numberOfSkillsForMentor.findIndex(function (skills) {
+    skills === mathMax(...numberOfSkillsForMentor);
+  });
+}
+mentors.forEach(function (mentor) {
+  mentor.addStudentsLikes = function () {
+    this.studentLikes = this.studentLikes + 1;
+  };
+});
+function addStudentLikes(mentors) {
+  mentors.forEach(function (mentor) {
+    mentor.studentLikes++;
+  });
+}
+
+addSkill(mentors, "C++");
+
+console.log(mentors);

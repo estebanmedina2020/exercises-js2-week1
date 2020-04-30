@@ -1,12 +1,8 @@
 /* Challenge Famous Writers
 Did you know you can also have an array of objects? We've created one for you here.
-Loop through the array, 
-and for each object, `console.log()` out the sentence:
-
+Loop through the array, and for each object, `console.log()` out the sentence:
 "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
-
 Here is the array:
-
 */
 
 let writers = [
@@ -40,35 +36,25 @@ let writers = [
   },
 ];
 
-let greeting = writers.forEach((object) =>
+function greeting(writer) {
   console.log(
     "Hi, my name is " +
-      object.firstName +
+      writer.firstName +
       " " +
-      object.lastName +
+      writer.lastName +
       ". I am " +
-      object.age +
+      writer.age +
       " years old, and work as a " +
-      object.occupation +
+      writer.occupation +
       "."
-  )
-);
+  );
+}
+function isAlive(writer) {
+  return writer.alive;
+}
 
-let greetingAlive = writers.forEach((object) => {
-  if (object.alive === true) {
-    console.log(
-      "Hi, my name is " +
-        object.firstName +
-        " " +
-        object.lastName +
-        ". I am " +
-        object.age +
-        " years old, and work as a " +
-        object.occupation +
-        "."
-    );
-  }
-});
+const aliveWriters = writers.filter(isAlive);
+aliveWriters.forEach(greeting);
 
 /*
 If you want an extra challenge, only `console.log()` the writers that are alive.
