@@ -139,19 +139,17 @@ function moreSkillfullMentor(arrayOfMentors) {
   });
   return arrayOfMentors[index];
 }
-
-/*
 mentors.forEach(function (mentor) {
-  mentor.addStudentsLikes = function () {
+  mentor.plusStudentsLikes = function () {
     this.studentLikes = this.studentLikes + 1;
   };
 });
-function addStudentLikes(mentors) {
+function plusStudentLikes(mentors) {
   mentors.forEach(function (mentor) {
     mentor.studentLikes++;
   });
 }
-*/
+
 addSkill(mentors, "C++");
 
 removeSkill(mentors, "HTML");
