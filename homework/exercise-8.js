@@ -45,18 +45,6 @@ function addStudentLikes(mentors){
 
 var mentors = [
   {
-    firstName: "Antonio",
-    lastName: "Miranda",
-    skills: ["JS", "React", "Node"],
-    class: "Mar1",
-    studentLikes: 0,
-    job: {
-      company: "Google",
-      position: "Senior developer",
-      city: "Barcelona",
-    },
-  },
-  {
     firstName: "Leo",
     lastName: "Messi",
     skills: ["Play football"],
@@ -65,6 +53,18 @@ var mentors = [
     job: {
       company: "FC Barcelona",
       position: "Player",
+      city: "Barcelona",
+    },
+  },
+  {
+    firstName: "Antonio",
+    lastName: "Miranda",
+    skills: ["JS", "React", "Node"],
+    class: "Mar1",
+    studentLikes: 0,
+    job: {
+      company: "Google",
+      position: "Senior developer",
       city: "Barcelona",
     },
   },
@@ -129,14 +129,18 @@ function removeSkill(mentors, newSkill) {
     mentor.skills.splice(index, 1);
   });
 }
+
 function moreSkillfullMentor(arrayOfMentors) {
-  const numberOfSkillsForMentor = mentors.map(function (mentor) {
-    mentor.skills.length;
+  const numberOfSkillsForMentor = arrayOfMentors.map(function (mentor) {
+    return mentor.skills.length;
   });
-  numberOfSkillsForMentor.findIndex(function (skills) {
-    skills === mathMax(...numberOfSkillsForMentor);
+  const index = numberOfSkillsForMentor.findIndex(function (skills) {
+    return skills === Math.max.apply(null, numberOfSkillsForMentor);
   });
+  return arrayOfMentors[index];
 }
+
+/*
 mentors.forEach(function (mentor) {
   mentor.addStudentsLikes = function () {
     this.studentLikes = this.studentLikes + 1;
@@ -147,7 +151,11 @@ function addStudentLikes(mentors) {
     mentor.studentLikes++;
   });
 }
-
+*/
 addSkill(mentors, "C++");
 
-console.log(mentors);
+removeSkill(mentors, "HTML");
+
+const mentor = moreSkillfullMentor(mentors);
+console.log(mentor);
+//console.log(mentors);
