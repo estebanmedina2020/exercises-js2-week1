@@ -146,7 +146,7 @@ mentors.forEach(function (mentor) {
 });
 function plusStudentLikes(mentors) {
   mentors.forEach(function (mentor) {
-    mentor.studentLikes++;
+    mentor.plusStudentsLikes();
   });
 }
 
