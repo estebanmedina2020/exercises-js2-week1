@@ -140,7 +140,7 @@ function moreSkillfullMentor(arrayOfMentors) {
   return arrayOfMentors[index];
 }
 mentors.forEach(function (mentor) {
-  mentor.plusStudentsLikes = function () {
+  mentor.plusStudentsLikes = function myEstebansFunction() {
     this.studentLikes = this.studentLikes + 1;
   };
 });
